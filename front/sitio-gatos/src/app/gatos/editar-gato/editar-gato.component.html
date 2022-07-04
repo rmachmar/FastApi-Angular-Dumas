@@ -1,0 +1,68 @@
+<div>
+    <h2 class="text-center">Formulario Modificar</h2>
+    <form [formGroup]='miFormulario' (ngSubmit)="onSubmit()" style="width: 50%; margin: 0px auto;">
+        <div class="form-group">
+          <label for="nombre">Nombre</label>
+          <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" maxlength="100"
+                    formControlName='nombre' required>
+        </div>
+        <div class="form-group">
+            <label for="raza">Raza</label>
+            <input type="text" class="form-control" id="raza" name="raza" placeholder="Raza" maxlength="100"
+                    formControlName='raza' required>
+          </div>
+          <div class="form-group">
+            <label for="edad">Edad</label>
+            <input type="number" class="form-control" id="edad" name="edad" placeholder="Edad" min="1" max="120" 
+                    formControlName='edad' onKeyPress="if(this.value.length==3) return false;" required>
+          </div>
+          <div class="form-group">
+            <label for="foto">Foto</label>
+            <div class="divImagen">
+              <input type="text" class="form-control" id="foto" name="foto" maxlength="1000"
+                      formControlName='foto' readonly required>
+              <a class="btn btn-info" title="Elegir Gato" data-bs-toggle="modal" data-bs-target="#modalGato">Favoritos</a>
+            </div>
+          </div>
+          <br>
+          <div class="form-group grupoBotones">
+            <a href="/gatos" class="btn btn-info">Volver</a>
+            <button type="submit" class="btn btn-primary" [disabled]="!miFormulario.valid" style="float: right;">Actualizar</button>
+          </div>
+    </form>
+</div>
+
+<br>
+<div class="vistaPrevia">  
+  <a class="btn btn-danger" title="Cambiar Gato" data-bs-toggle="modal" data-bs-target="#modalGato">Cambiar foto</a>
+  <br>
+  <img id="imgGatoFav" src="{{ gato.Foto }}">
+</div> 
+
+<!-- Modal -->
+<div class="modal fade" id="modalGato" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Selecciona un favorito</h5>
+        <button type="button" class="btn"  data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <ul class="modalUlGato">
+            <li *ngFor="let f of urlFavoritos">
+              <button class="btn" type="button" style="padding:0px" (click)="MarcarFoto(f)">
+                <img class="card-img-top" src="{{ f }}" alt="Gato">
+              </button>              
+            </li>
+          </ul>
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>

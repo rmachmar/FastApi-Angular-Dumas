@@ -1,0 +1,9 @@
+<h2 class="text-center">Lista Imágenes</h2>
+<div class="row" *ngFor="let g of grupo">
+    <div class="card col-md" *ngFor="let ig of g">
+        <img class="card-img-top" src="{{ ig.url }}" alt="Gato">
+        <div class="card-body text-center">
+            <button #btn class="btn btn-success" [disabled]="clicked" (click)="marcarFavorito(ig.id ); btn.disabled = true;">Marcar favorito</button>            
+        </div>
+    </div>
+</div>

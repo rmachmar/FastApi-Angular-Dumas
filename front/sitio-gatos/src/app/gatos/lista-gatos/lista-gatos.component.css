@@ -1,0 +1,14 @@
+.estiloTabla thead tr th{
+    text-align: center;
+}
+.estiloTabla tbody tr td{
+    text-align: center;
+}
+.estiloTabla tbody tr td a{
+    margin: 3px;
+    color: white;
+}
+.btnAgregar {
+    float: right; 
+    color: white;
+}

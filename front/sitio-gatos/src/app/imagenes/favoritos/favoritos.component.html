@@ -1,0 +1,6 @@
+<h2 class="text-center">Lista Favoritos</h2>
+<div class="row" *ngFor="let g of grupo">
+    <div class="card col-md" *ngFor="let ig of g" >
+        <img class="card-img-top" src="{{ ig.image.url }}" alt="Gato">
+    </div>
+</div>

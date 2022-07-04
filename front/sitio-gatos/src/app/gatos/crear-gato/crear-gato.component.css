@@ -1,0 +1,35 @@
+.grupoBotones > button, a {
+    color:white;
+}
+.divImagen {
+    display: flex;
+    flex-direction: row;
+}
+.divImagen a {
+    color: white;
+    margin: 0px 0px 0px 5px;
+    white-space: nowrap;
+}
+.modalUlGato {
+    list-style: none;
+    padding: 0px;
+    text-align: center;
+}
+.modalUlGato li {
+    display: inline-block;
+    max-width: 22%;
+    margin: 5px;
+}
+.modalUlGato li a{
+    display: block;
+}
+
+.vistaPrevia {
+    width: 40%; 
+    margin: 0px auto; 
+    display: flex; 
+    flex-direction: column;
+}
+.claseOcultar {
+    display: none;
+}
